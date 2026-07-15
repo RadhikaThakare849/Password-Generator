@@ -9,6 +9,8 @@ lower = input("Include Lowercase ?(y/n): ").lower()
 number = input("Include Numbers ?(y/n): ").lower()
 symbol = input("Include Symbols ?(y/n): ").lower()
 
+count = int(input("How many passwords do you want to generate? "))
+
 # Check minimum password length
 if length < 8:
     print("Warning: Password should be at least 8 characters long for better security.")
@@ -41,10 +43,9 @@ else:
         print("Error: You must select at least one character type.")
     else:
         # Generate password
-        password = "".join(random.choice(all_characters) for i in range(length))
-
-    # Display password
-    print("\nGenerated Password:", password)
+        for _ in range(count):
+            password = "".join(random.choice(all_characters) for j in range(length))
+            print(f"\nPassword {_ + 1}: {password}")
 
     # Password Strength Checker
     strength = 0
